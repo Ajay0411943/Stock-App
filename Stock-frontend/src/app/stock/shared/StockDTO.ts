@@ -1,0 +1,8 @@
+export interface StockDTO{
+  id: number;
+  stockname: string;
+  description: string;
+  currentValue: number;
+  initialPrice: number;
+  initialDate: string;
+}

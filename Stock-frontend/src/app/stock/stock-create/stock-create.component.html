@@ -1,0 +1,38 @@
+<div [formGroup]="stockForm" *ngIf="!stockCreate">
+  <h3 style="background-color: magenta" class="mat-card-subtitle">Creating new Stocks</h3>
+  <mat-card-subtitle fxLayoutAlign="left left">
+    <mat-card-footer style = "font-weight: bold">Fill out the form first </mat-card-footer>
+  </mat-card-subtitle>
+
+  <label>
+    StockName:
+    <input type="text" formControlName="name" id="stockname">
+  </label>
+
+  <label>
+    Description:
+    <input type="text" formControlName="description">
+  </label>
+
+  <label>
+    Value:
+    <input type="number" formControlName="currentValue">
+  </label>
+  <label>
+    Date:
+    <input type="text" formControlName="initialDate">
+  </label>
+  <label>
+    Price:
+    <input type="number" formControlName="initialPrice">
+  </label>
+  <button type="button" (click)="createStock()" style="background-color: green" class="mat-icon-button mat-icon">Submit</button>
+</div>
+<h4 *ngIf="error" style="color: red">{{error}}</h4>
+<div *ngIf="stockCreate">
+  {{stockCreate | json}}
+  <button (click)="stockCreate = undefined">CreateStock</button>
+</div>
+<div fxLayout="row"  fxLayoutAlign="center top" fxLayoutGap="17px">
+  <button routerLink="/stock-exchange" style="background-color: blue">Back</button>
+</div>
